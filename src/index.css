@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #0F0B1E;
+  color: #E8ECF0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ─── Custom scrollbar ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0F0B1E; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00E5FF, #FFB627);
+  border-radius: 3px;
+}
+
+/* ─── Selection ─── */
+::selection { background: rgba(0,229,255,0.2); color: #fff; }
+
+/* ─── Glass panel ─── */
+@layer components {
+  .glass {
+    @apply bg-panel/70 backdrop-blur-xl;
+    border: 1px solid rgba(200,180,255,0.1);
+    border-radius: 16px;
+    box-shadow:
+      0 4px 32px rgba(0,0,0,0.55),
+      0 1px 0 rgba(200,180,255,0.06) inset;
+  }
+
+  .glass-hover {
+    @apply glass transition-all duration-300;
+  }
+  .glass-hover:hover {
+    border-color: rgba(160,120,255,0.28);
+    box-shadow:
+      0 0 0 1px rgba(140,100,255,0.1) inset,
+      0 8px 40px rgba(120,80,255,0.08),
+      0 4px 32px rgba(0,0,0,0.55);
+    transform: translateY(-2px);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #00E5FF 0%, #FFB627 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Bento card base */
+  .bento-card {
+    @apply glass relative overflow-hidden p-5;
+    background: rgba(22, 16, 42, 0.88) !important;
+    border-color: rgba(200,180,255,0.12) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .bento-card:hover {
+    border-color: rgba(160,120,255,0.32) !important;
+    box-shadow:
+      0 0 40px rgba(140,100,255,0.08),
+      0 8px 32px rgba(0,0,0,0.5) !important;
+    transform: translateY(-2px);
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply font-mono text-xs px-3 py-1 rounded-md border;
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    color: #8892A0;
+    transition: all 0.2s ease;
+  }
+  .tag-pill:hover { transform: translateY(-1px); }
+  .tag-pill.amber { color: #FFB627; border-color: rgba(255,182,39,0.3); }
+  .tag-pill.amber:hover { box-shadow: 0 0 12px rgba(255,182,39,0.3); }
+  .tag-pill.cyan  { color: #00E5FF; border-color: rgba(0,229,255,0.3); }
+  .tag-pill.cyan:hover  { box-shadow: 0 0 12px rgba(0,229,255,0.25); }
+  .tag-pill.blue  { color: #4FA3A0; border-color: rgba(79,163,160,0.3); }
+  .tag-pill.orange { color: #FF8C00; border-color: rgba(255,140,0,0.3); }
+  .tag-pill.yellow { color: #FFD200; border-color: rgba(255,210,0,0.3); }
+  .tag-pill.green  { color: #4ECC7A; border-color: rgba(78,204,122,0.3); }
+  .tag-pill.purple { color: #A064FF; border-color: rgba(160,100,255,0.3); }
+
+  /* Spotlight card */
+  .spotlight-card {
+    @apply bento-card cursor-default;
+    --mx: 50%; --my: 50%;
+  }
+  .spotlight-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: radial-gradient(
+      300px circle at var(--mx) var(--my),
+      rgba(0,229,255,0.08),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .spotlight-card:hover::before { opacity: 1; }
+}
+
+/* ─── Noise texture overlay ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Ambient glow blobs ─── */
+.glow-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
