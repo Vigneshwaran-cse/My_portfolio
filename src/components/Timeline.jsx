@@ -48,7 +48,7 @@ const ENTRIES = [
 
 export default function Timeline() {
   return (
-    <section id="deploy_log" className="py-20 px-14 max-w-[860px]">
+    <section id="deploy_log" className="py-16 md:py-20 px-6 sm:px-10 lg:px-14 max-w-[960px]">
       <ScrollReveal>
         <div className="flex items-center gap-2.5 mb-2">
           <span className="font-mono text-[12px] text-cyan">03</span>

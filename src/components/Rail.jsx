@@ -30,7 +30,7 @@ export default function Rail() {
   }, [])
 
   return (
-    <aside className="fixed left-0 top-0 bottom-0 w-[236px] z-50 flex flex-col px-7 py-8"
+    <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-[236px] z-50 flex-col px-7 py-8"
       style={{ background: 'rgba(10,7,20,0.94)', borderRight: '1px solid rgba(180,150,255,0.08)', backdropFilter: 'blur(20px)' }}>
       {/* Brand */}
       <a href="#hero" className="font-head font-extrabold text-xl tracking-tight mb-12 block">

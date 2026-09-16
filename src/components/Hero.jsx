@@ -208,29 +208,52 @@ export default function Hero() {
       >
 
         {/* ══ LEFT — Content Bento Grid ══ */}
-        <div className="px-12 py-16 flex flex-col gap-5">
+        <div className="px-5 sm:px-8 md:px-12 py-10 md:py-16 flex flex-col gap-5">
 
           {/* Big headline */}
           <motion.h1
             {...fadeUp(0.05)}
             className="font-head font-extrabold tracking-tight leading-[1.08]"
-            style={{ fontSize: 'clamp(30px, 3.5vw, 50px)' }}
+            style={{ fontSize: 'clamp(28px, 4vw, 50px)' }}
           >
             Designing Systems.<br />
             <span className="gradient-text">Delivering Impact.</span>
           </motion.h1>
 
-          <motion.p {...fadeUp(0.12)} className="font-body text-[15px] text-white/40 max-w-[44ch] leading-relaxed -mt-2">
-            Java &amp; Full-Stack Engineer with hands-on experience across 2 internships and 2 production-grade CRUD applications. CGPA 8.81 · B.E. CSE.
-          </motion.p>
+          {/* Mobile Profile Photo Card (visible only on mobile screens) */}
+          <motion.div
+            {...fadeUp(0.08)}
+            className="flex md:hidden items-center gap-4 p-3.5 rounded-2xl border"
+            style={{
+              background: 'rgba(20, 14, 36, 0.88)',
+              borderColor: 'rgba(184, 127, 255, 0.25)',
+              boxShadow: '0 4px 24px rgba(0,0,0,0.6), 0 0 20px rgba(184,127,255,0.1)',
+            }}
+          >
+            <div
+              className="w-16 h-16 rounded-xl overflow-hidden relative shrink-0"
+              style={{ border: '2px solid rgba(184, 127, 255, 0.5)', boxShadow: '0 0 12px rgba(184,127,255,0.3)' }}
+            >
+              <img
+                src="/img/profile.jpeg"
+                alt="Vigneshwaran K"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: 'center 12%' }}
+              />
+            </div>
+            <div className="min-w-0">
+              <div className="font-head font-bold text-[16px] text-white truncate">Vigneshwaran K</div>
+              <div className="font-mono text-[12px] text-[#B87FFF] font-medium truncate">Java &amp; Full-Stack Engineer</div>
+              <div className="font-mono text-[10.5px] text-white/40 mt-0.5 truncate">Pudukkottai, TN · CGPA 8.81</div>
+            </div>
+          </motion.div>
 
           {/*
            ══ INNER BENTO GRID ══
-           3 columns — fills ALL available horizontal space
+           Responsive columns — cleanly scales from mobile to desktop
           */}
           <div
-            className="grid gap-3"
-            style={{ gridTemplateColumns: 'repeat(3, minmax(0,1fr))' }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-3"
           >
             {/* Row 1 */}
             <WhoamiCard delay={0.18} />

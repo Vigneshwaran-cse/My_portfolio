@@ -70,7 +70,7 @@ function TiltCard({ children }) {
 
 export default function Projects() {
   return (
-    <section id="builds" className="py-20 px-14 max-w-[860px]">
+    <section id="builds" className="py-16 md:py-20 px-6 sm:px-10 lg:px-14 max-w-[960px]">
       <ScrollReveal>
         <div className="flex items-center gap-2.5 mb-2">
           <span className="font-mono text-[12px] text-cyan">02</span>

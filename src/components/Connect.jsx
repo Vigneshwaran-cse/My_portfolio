@@ -9,11 +9,11 @@ const LINKS = [
 
 export default function Connect() {
   return (
-    <section id="connect" className="py-20 px-14 max-w-[860px] pb-32">
+    <section id="connect" className="py-16 md:py-20 px-6 sm:px-10 lg:px-14 max-w-[960px] pb-32">
       <ScrollReveal>
         <div className="flex items-center gap-2.5 mb-2">
           <span className="font-mono text-[12px] text-cyan">05</span>
-          <span className="font-head text-[13px] text-[#8892A0] font-semibold tracking-widest uppercase">connect</span>
+          <span className="font-head text-[13px] text-[#8892A0] font-semibold tracking-widest uppercase">Contact</span>
         </div>
         <p className="font-body text-[#4A5568] text-[15px] mb-8">Open to full-time roles, internships, and technical collaborations. Reach out directly.</p>
       </ScrollReveal>

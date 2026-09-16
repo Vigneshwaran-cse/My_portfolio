@@ -20,11 +20,25 @@ function CustomCursor() {
     const glow = glowRef.current
     if (!dot || !ring || !glow) return
 
+    /* Completely disable on mobile, tablet, and touch devices */
+    const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches || window.innerWidth < 1024
+    if (isTouch) {
+      dot.style.display = 'none'
+      ring.style.display = 'none'
+      glow.style.display = 'none'
+      return
+    }
+
     /* Respect reduced-motion */
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduceMotion) { dot.style.display = 'none'; ring.style.display = 'none'; glow.style.display = 'none'; return }
+    if (reduceMotion) {
+      dot.style.display = 'none'
+      ring.style.display = 'none'
+      glow.style.display = 'none'
+      return
+    }
 
-    /* Hide the native OS cursor on the whole page */
+    /* Hide the native OS cursor on desktop */
     document.body.style.cursor = 'none'
 
     let mx = -500, my = -500   // mouse (snapped)
@@ -129,7 +143,7 @@ function CustomCursor() {
   }, [])
 
   return (
-    <>
+    <div className="hidden lg:block">
       {/* ── Dot: snaps to pointer exactly ── */}
       <div ref={dotRef}
         style={{
@@ -181,7 +195,7 @@ function CustomCursor() {
           willChange: 'left, top',
         }}
       />
-    </>
+    </div>
   )
 }
 
@@ -279,7 +293,7 @@ export default function App() {
 
 
       {/* Main content */}
-      <main className="relative z-10" style={{ marginLeft: '236px' }}>
+      <main className="relative z-10 ml-0 lg:ml-[236px]">
         <Hero />
         <BentoSection />
         <Projects />
@@ -287,17 +301,16 @@ export default function App() {
         <Certs />
         <Connect />
 
-        <footer className="px-14 py-7 font-mono text-[12px] text-[#2D3748] flex justify-between flex-wrap gap-2"
-          style={{ borderTop: '1px solid rgba(180,150,255,0.07)', maxWidth: '860px' }}>
+        <footer className="px-6 lg:px-14 py-7 font-mono text-[12px] text-[#4A5568] flex justify-between flex-wrap gap-2"
+          style={{ borderTop: '1px solid rgba(180,150,255,0.07)', maxWidth: '960px' }}>
           <span>© 2026 Vigneshwaran K</span>
           <span>React · Tailwind · Framer Motion</span>
         </footer>
       </main>
 
-      {/* Mobile: no rail offset + restore default cursor on touch devices */}
+      {/* Touch devices cursor override */}
       <style>{`
-        @media (max-width: 860px) {
-          main { margin-left: 0 !important; }
+        @media (max-width: 1024px) {
           .glow-blob { display: none; }
         }
         @media (hover: none), (pointer: coarse) {

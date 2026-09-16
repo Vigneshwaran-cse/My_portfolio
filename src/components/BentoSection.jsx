@@ -98,7 +98,7 @@ function SpotlightCard({ children, className = '', style = {} }) {
 
 export default function BentoSection() {
   return (
-    <section id="bento" className="py-20 px-14">
+    <section id="bento" className="py-16 md:py-20 px-6 sm:px-10 lg:px-14">
       <ScrollReveal>
         <div className="flex items-center gap-2.5 mb-1">
           <span className="font-mono text-[12px] text-cyan">01</span>
@@ -109,9 +109,9 @@ export default function BentoSection() {
         </p>
       </ScrollReveal>
 
-      <div className="bento-main flex gap-6 items-start">
+      <div className="bento-main flex flex-col lg:flex-row gap-6 items-start">
         {/* Left: 3-col skill cards */}
-        <div className="bento-skills grid gap-4 flex-1" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+        <div className="bento-skills grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 flex-1 w-full">
           {SKILLS.map((g, gi) => (
             <ScrollReveal key={g.category} delay={gi * 0.07}>
               <SpotlightCard className="h-full">
@@ -131,7 +131,7 @@ export default function BentoSection() {
         </div>
 
         {/* Right: animated stats + availability */}
-        <div className="bento-stats flex flex-col gap-4" style={{ width: '220px', flexShrink: 0 }}>
+        <div className="bento-stats grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-col gap-4 w-full lg:w-[220px] shrink-0">
           {STATS.map((s, si) => (
             <ScrollReveal key={s.label} delay={si * 0.1}>
               <SpotlightCard className="py-5 px-5">

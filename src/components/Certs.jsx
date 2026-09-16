@@ -28,11 +28,11 @@ function Badge({ type, label }) {
 
 export default function Certs() {
   return (
-    <section id="certs" className="py-20 px-14 max-w-[860px]">
+    <section id="certs" className="py-16 md:py-20 px-6 sm:px-10 lg:px-14 max-w-[960px]">
       <ScrollReveal>
         <div className="flex items-center gap-2.5 mb-2">
           <span className="font-mono text-[12px] text-cyan">04</span>
-          <span className="font-head text-[13px] text-[#8892A0] font-semibold tracking-widest uppercase">certs</span>
+          <span className="font-head text-[13px] text-[#8892A0] font-semibold tracking-widest uppercase">Credentials</span>
         </div>
         <p className="font-body text-[#4A5568] text-[15px] mb-8">Verified credentials and academic recognitions — all completed, none in progress.</p>
       </ScrollReveal>
