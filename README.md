@@ -10,16 +10,16 @@ No package installation or build step is required.
 2. Open the folder in VS Code.
 3. Start it with the Live Server extension, or run:
 
-   \`python -m http.server 5500\`
+   `python -m http.server 5500`
 
-4. Visit \`http://localhost:5500\`.
+4. Visit `http://localhost:5500`.
 
 ## Project structure
 
-- \`index.html\` — page structure, profile content and project descriptions
-- \`style.css\` — dark visual system, responsive layouts and motion
-- \`script.js\` — mobile navigation, active section state, reveal effects, project filters and copy-email action
-- \`img/profile photo.jpg\` — portfolio portrait
+- `index.html` — page structure, profile content and project descriptions
+- `style.css` — dark visual system, responsive layouts and motion
+- `script.js` — mobile navigation, active section state, reveal effects, project filters and copy-email action
+- `img/profile photo.jpg` — portfolio portrait
 
 ## Content maintenance
 
